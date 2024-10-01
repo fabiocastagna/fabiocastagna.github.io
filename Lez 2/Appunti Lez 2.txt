@@ -1,0 +1,8 @@
+lcg / lezione 2
+
+in p5 la sequenza di istruzioni è importante,
+quando disegno la prima cosa è il background
+e il resto si disegna in ordine. i parametri
+di una forma si mettono prima della dichiarazione
+della funzione stessa.
+
