@@ -97,10 +97,10 @@
     </header>
 
     <div class="container">
-        <div class="lesson" id="lesson2">
+        <div class="lesson" id="lesson1">
             <h2>Lezione 1</h2>
             <p></p>
-            <div class="dropdown" id="dropdown2">
+            <div class="dropdown" id="dropdown1">
                 <a href="Files/Lezione 1 LCG.pdf" download>Scarica PDF Lezione 1</a>
             </div>
         </div>
@@ -114,24 +114,23 @@
             </div>
         </div>
 
-        <div class="lesson" id="lesson2">
+        <div class="lesson" id="lesson3">
             <h2>Lezione 3</h2>
             <p></p>
-            <div class="dropdown" id="dropdown2">
+            <div class="dropdown" id="dropdown3">
                 <a href="Files/Lezione 3 LCG.pdf" download>Scarica PDF Lezione 3</a>
-                <a href="Lezione 2/Challenge/index.html">Challenge Lezione 3</a>
+                <a href="Lezione 3/Challenge/index.html">Challenge Lezione 3</a>
             </div>
         </div>
 
-        <div class="lesson" id="lesson2">
+        <div class="lesson" id="lesson4">
             <h2>Lezione 4</h2>
             <p></p>
-            <div class="dropdown" id="dropdown2">
+            <div class="dropdown" id="dropdown4">
                 <a href="Files/Lezione 4 LCG.pdf" download>Scarica PDF Lezione 4</a>
-                <a href="Lezione 2/Challenge/index.html">Challenge Lezione 4</a>
+                <a href="Lezione 4/Challenge/index.html">Challenge Lezione 4</a>
             </div>
         </div>
-
     </div>
 
     <footer>
@@ -139,21 +138,33 @@
     </footer>
 
     <script>
-        // JavaScript per visualizzare il menu dropdown della Lezione 2
-        document.getElementById("lesson2").addEventListener("click", function() {
-            var dropdown = document.getElementById("dropdown2");
-            if (dropdown.style.display === "block") {
-                dropdown.style.display = "none";
-            } else {
-                dropdown.style.display = "block";
-            }
-        });
+        // Funzione per gestire l'apertura e chiusura dei dropdown
+        function toggleDropdown(lessonId, dropdownId) {
+            document.getElementById(lessonId).addEventListener("click", function() {
+                var dropdown = document.getElementById(dropdownId);
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                } else {
+                    dropdown.style.display = "block";
+                }
+            });
+        }
 
-        // Chiusura del dropdown quando si clicca al di fuori
+        // Aggiungi eventi per ogni lezione
+        toggleDropdown("lesson1", "dropdown1");
+        toggleDropdown("lesson2", "dropdown2");
+        toggleDropdown("lesson3", "dropdown3");
+        toggleDropdown("lesson4", "dropdown4");
+
+        // Chiudi tutti i dropdown quando si clicca al di fuori
         window.addEventListener("click", function(event) {
-            if (!event.target.closest("#lesson2")) {
-                document.getElementById("dropdown2").style.display = "none";
-            }
+            var lessons = ["lesson1", "lesson2", "lesson3", "lesson4"];
+            var dropdowns = ["dropdown1", "dropdown2", "dropdown3", "dropdown4"];
+            lessons.forEach(function(lesson, index) {
+                if (!event.target.closest("#" + lesson)) {
+                    document.getElementById(dropdowns[index]).style.display = "none";
+                }
+            });
         });
     </script>
 
