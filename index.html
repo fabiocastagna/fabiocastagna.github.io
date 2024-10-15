@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indice Corso di Computer Grafica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4d3fab;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .lesson {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .lesson:hover {
+            transform: translateY(-5px);
+        }
+
+        .lesson h2 {
+            font-size: 1.8em;
+            color: #4d3fab;
+            margin-bottom: 10px;
+        }
+
+        .lesson p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .dropdown {
+            display: none;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        .dropdown a {
+            display: block;
+            color: #4d3fab;
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 600;
+        }
+
+        .dropdown a:hover {
+            background-color: #f0f0f0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Indice Corso di Computer Grafica</h1>
+    </header>
+
+    <div class="container">
+        <div class="lesson">
+            <h2>Lezione 1</h2>
+            <p></p>
+        </div>
+
+        <div class="lesson" id="lesson2">
+            <h2>Lezione 2</h2>
+            <p></p>
+            <div class="dropdown" id="dropdown2">
+                <a href="Lezione 2 LCG.pdf" download>Scarica PDF Lezione 2</a>
+                <a href="Lezione 2/Challenge/sketch.js">Challenge Lezione 2</a>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <h2>Lezione 3</h2>
+            <p></p>
+        </div>
+
+        <div class="lesson">
+            <h2>Lezione 4</h2>
+            <p></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Laboratorio di Computer Grafica - Politecnico di Milano</p>
+    </footer>
+
+    <script>
+        // JavaScript per visualizzare il menu dropdown della Lezione 2
+        document.getElementById("lesson2").addEventListener("click", function() {
+            var dropdown = document.getElementById("dropdown2");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        });
+
+        // Chiusura del dropdown quando si clicca al di fuori
+        window.addEventListener("click", function(event) {
+            if (!event.target.closest("#lesson2")) {
+                document.getElementById("dropdown2").style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>
